@@ -207,10 +207,3 @@ marimo/_lsp/
 __marimo__/
 .env
 __pycache__/
-#Flet
-#Flet
-# Flet
-flet.exe
-fletd
-*.flet
-*.flet
