@@ -1,5 +1,8 @@
 ﻿import pdfplumber
 import re
+import os
+from collections import defaultdict
+from datetime import datetime
 
 class Product:
     def __init__(self, name, quantity, price, measure_of_quantity):
@@ -115,10 +118,36 @@ def summa(pdf_path):
 
 
 def main():
-    pdf_path = "C:\\Users\\ivano\\Desktop\\проект\\check3.pdf"
+    pdf_path = " " #Пример: pdf_path = "E:\\Check\\check2.pdf"
+    pdf_path_month = " " #Пример: pdf_path_month = "E:\\Check"
     all_prod = products_information(pdf_path)
+
+    pdf_files = [f for f in os.listdir(pdf_path_month) if f.lower().endswith('.pdf')]
+
+    monthly_totals = defaultdict(float)
+    i = 0
+
+    while i < len(pdf_files):
+        pdf_path = os.path.join(pdf_path_month, pdf_files[i])
+        try:
+            check_data = products_information(pdf_path)
+            raw_date = check_data[0].date
+            check_sum = summa(pdf_path)
+            dt = datetime.strptime(raw_date, "%d.%m.%y")
+            month_key = dt.strftime("%m-%Y")
+            monthly_totals[month_key] += check_sum
+
+        except Exception as error:
+            print(f"Ошибка при обработке {pdf_files[i]}: {error}")
+
+        i += 1
+
+    print("Сумма по месяцам: ")
+    for month in sorted(monthly_totals):
+        print(f"{month}: {monthly_totals[month]:.2f} руб.")
+
     print(summa(pdf_path))
-    
+
     # функция summa хранит в себе сумму чека дробным значением
 
     # print(f"   Дата выдачи чека: {all_prod[0].date}")
@@ -135,18 +164,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    
-    
-
-
-
-   
-
-    
-
-    
-
-
-
-
