@@ -50,6 +50,7 @@ def check(text_line, quantity, price):
         return False
 
 def parse_pdf(pdf_path):
+    global summa
     initial_data = "" # исходные данные
     info_about_check = [] # список всех данных о чеке
     prefix = "Мера кол-ва предмета расчета"
@@ -101,25 +102,30 @@ def parse_pdf(pdf_path):
     for linE in product_categories:
         create_product(linE, prefix, len_prefix, info_about_check)
 
+    summa_pruning = initial_data_NOW[5:];
+    summa_numb = summa_pruning[:summa_pruning.find(" ")]
+    summa = float(summa_numb)
+
     return info_about_check
 
-
+    
 
 def main():
-    pdf_path = input("Введите путь к чеку: ")
+    pdf_path = "C:\\Users\\ivano\\Desktop\\проект\\check3.pdf"
     all_prod = parse_pdf(pdf_path)
-    print(f"   Дата выдачи чека: {all_prod[0].date}")
-    print(f"   Время выдачи чека: {all_prod[0].time}")
-    print(f"   Адрес расчетов: {all_prod[0].payment_address}")
-    print(f"   Место расчетов: {all_prod[0].place_settlement}")
-    print("\nСписок покупок:\n")
-    for i, product in enumerate(all_prod[1:], 1):
-        print(f"{i}. {product.name}")
-        print(f"   Количество: {product.quantity}")
-        print(f"   Цена: {product.price} руб")
-        print(f"   Общая стоимость: {product.total:.2f} руб")
 
-
+    # summa хранит в себе сумму чека дробным значением
+    # print(f"   Дата выдачи чека: {all_prod[0].date}")
+    # print(f"   Время выдачи чека: {all_prod[0].time}")
+    # print(f"   Адрес расчетов: {all_prod[0].payment_address}")
+    # print(f"   Место расчетов: {all_prod[0].place_settlement}")
+    # print("\nСписок покупок:\n")
+    # for i, product in enumerate(all_prod[1:], 1):
+    #     print(f"{i}. {product.name}")
+    #     print(f"   Количество: {product.quantity}")
+    #     print(f"   Цена: {product.price} руб")
+    #     print(f"   Общая стоимость: {product.total:.2f} руб")
+    
 
 if __name__ == "__main__":
     main()
