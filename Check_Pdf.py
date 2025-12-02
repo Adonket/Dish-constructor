@@ -50,19 +50,20 @@ def check(text_line, quantity, price):
         return False
 
 def parse_pdf(pdf_path):
-    global summa
     initial_data = "" # исходные данные
-    info_about_check = [] # список всех данных о чеке
-    prefix = "Мера кол-ва предмета расчета"
-    product_categories = []
-    len_prefix = len(prefix)
     with pdfplumber.open(pdf_path) as pdf:
         for page in pdf.pages:
             text = page.extract_text()
             if text:
                 initial_data += text + " "
+    return initial_data
 
-    
+def products_information(pdf_path):
+    info_about_check = [] # список всех данных о чеке
+    prefix = "Мера кол-ва предмета расчета"
+    product_categories = []
+    len_prefix = len(prefix)
+    initial_data = parse_pdf(pdf_path)
     initial_data_now = initial_data.replace("\n", " ") # убрали переходы на новые строки для удобства
     pruning_index = initial_data_now.find("check.ofd.ru") # индекс обрезки. Тот, после которого идут полезные данные
     index_date_issue = initial_data_now.find("ДАТА ВЫДАЧИ ") + 12 #строка дата выдачи. индекс в исходных данных
@@ -102,19 +103,24 @@ def parse_pdf(pdf_path):
     for linE in product_categories:
         create_product(linE, prefix, len_prefix, info_about_check)
 
-    summa_pruning = initial_data_NOW[5:];
-    summa_numb = summa_pruning[:summa_pruning.find(" ")]
-    summa = float(summa_numb)
-
     return info_about_check
 
     
+def summa(pdf_path):
+    initial_data = parse_pdf(pdf_path)
+    result_pruning = initial_data[initial_data.find("ИТОГ") + 5:]
+    summa_numb = result_pruning[:result_pruning.find("\n")]
+    summ = float(summa_numb)
+    return summ
+
 
 def main():
     pdf_path = "C:\\Users\\ivano\\Desktop\\проект\\check3.pdf"
-    all_prod = parse_pdf(pdf_path)
+    all_prod = products_information(pdf_path)
+    print(summa(pdf_path))
+    
+    # функция summa хранит в себе сумму чека дробным значением
 
-    # summa хранит в себе сумму чека дробным значением
     # print(f"   Дата выдачи чека: {all_prod[0].date}")
     # print(f"   Время выдачи чека: {all_prod[0].time}")
     # print(f"   Адрес расчетов: {all_prod[0].payment_address}")
@@ -140,6 +146,7 @@ if __name__ == "__main__":
     
 
     
+
 
 
 
