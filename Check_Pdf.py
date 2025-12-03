@@ -1,5 +1,6 @@
 ﻿import pdfplumber
 import re
+import json
 
 class Product:
     def __init__(self, name, quantity, price, measure_of_quantity):
@@ -8,13 +9,34 @@ class Product:
         self.price = price         # Цена
         self.total = quantity * price  # Общая стоимость
         self.measure_of_quantity = measure_of_quantity # мера количества
-        
+
+    def to_dict(self):
+        """Преобразует объект Product в словарь"""
+        return {
+            "name": self.name,
+            "quantity": self.quantity,
+            "price": self.price,
+            "total": self.total,
+            "measure_of_quantity": self.measure_of_quantity
+        }
+
 class Checkinfo:
     def __init__(self, date, time, payment_address, place_settlement):
         self.date = date
         self.time = time 
         self.payment_address = payment_address
         self.place_settlement = place_settlement
+
+    def to_dict(self):
+        """Преобразует объект Checkinfo в словарь"""
+        return {
+            "date": self.date,
+            "time": self.time,
+            "payment_address": self.payment_address,
+            "place_settlement": self.place_settlement
+        }
+
+    
 
 def create_product(text_line, prefix, len_prefix, info_about_check):
     pattern = r'(\d+[,.]?\d*)\s*[X]\s*(\d+[,.]?\d*)'
@@ -103,9 +125,32 @@ def products_information(pdf_path):
     for linE in product_categories:
         create_product(linE, prefix, len_prefix, info_about_check)
 
+
     return info_about_check
 
+def in_dict(info_about_check): 
+    # products_dicts = [product.to_dict() for product in info_about_check]
+    # return products_dicts
+
+    if not info_about_check:
+        return {}
+
+    check_info = info_about_check[0].to_dict() if hasattr(info_about_check[0], 'to_dict') else {}
+
+    products_list = []
+    for item in info_about_check[1:]:
+        if hasattr(item, 'to_dict'):
+            products_list.append(item.to_dict())
     
+    result = {
+        "check_info": check_info,
+        "products": products_list,
+        "total_sum": sum(item.total for item in info_about_check[1:])
+    }
+    
+    return result
+
+
 def summa(pdf_path):
     initial_data = parse_pdf(pdf_path)
     result_pruning = initial_data[initial_data.find("ИТОГ") + 5:]
@@ -117,10 +162,11 @@ def summa(pdf_path):
 def main():
     pdf_path = "C:\\Users\\ivano\\Desktop\\проект\\check3.pdf"
     all_prod = products_information(pdf_path)
-    print(summa(pdf_path))
-    
-    # функция summa хранит в себе сумму чека дробным значением
 
+    # функция summa хранит в себе сумму чека дробным значением
+    json_data = in_dict(all_prod)
+    with open('check_data.json', 'w', encoding='utf-8') as f:
+        json.dump(json_data, f, ensure_ascii=False, indent=2)
     # print(f"   Дата выдачи чека: {all_prod[0].date}")
     # print(f"   Время выдачи чека: {all_prod[0].time}")
     # print(f"   Адрес расчетов: {all_prod[0].payment_address}")
