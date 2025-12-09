@@ -1,0 +1,190 @@
+[33mcommit f6521aa5d08728f46f60543ffcbf750ff0a7fe53[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcheck-pdf[m[33m)[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Wed Dec 3 10:55:07 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit cbfb51559f3e5c61cdf4eabf9e3473982440dddf[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Wed Dec 3 00:31:22 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit ba00060dc7763a00e965231d3a9db48b9c7526b7[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Tue Dec 2 23:59:09 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit e843d6347bf2c0ed8781d7d13da642014ff6ccac[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Tue Dec 2 23:05:17 2025 +0700
+
+    Create Check_Pdf.py
+
+[33mcommit b0126976923552687081c409d68db374bd2fd9c9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Константин <ivanovkonstantin052786@gmail.com>
+Date:   Tue Nov 25 19:15:08 2025 +0700
+
+    Создали файл gitignore
+
+[33mcommit 678a8f8172d272a644913ead1b1bcd72a7cfd636[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Wed Nov 19 01:21:37 2025 +0700
+
+    Добавлен запуск приложения в main
+
+[33mcommit 50c6a06fc487a9b8b5c71e0228738f6ce66ea0e4[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Wed Nov 19 01:04:50 2025 +0700
+
+    Добавлен main
+
+[33mcommit b8c2b72e26edf192e75d5af8245b4d1d3f2d8e5c[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Wed Nov 19 00:57:29 2025 +0700
+
+    Убран запуск приложения из auth
+
+[33mcommit 376f87cf323f1fd022e3c4690ffd50977e292c2c[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:31:43 2025 +0700
+
+    update
+
+[33mcommit d1e5078b7cdb58f9caad1708b630811bdb1aad8f[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:28:47 2025 +0700
+
+    update
+
+[33mcommit a648607f0e8321e3bf0b90a0d3ada4141c0e2c39[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:16:47 2025 +0700
+
+    Авторизация
+
+[33mcommit d06323a0013e82a1fb4ed1fbe8718296e85ee5d4[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:11:52 2025 +0700
+
+    Авторизация
+
+[33mcommit 017ab8b0eae1b7c61555ecbe363f562e7d8b9259[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Thu Nov 6 02:08:43 2025 +0700
+
+    Delete Test
+
+[33mcommit 7d78eca25bc7266e77dec7df95b378daf0d330d9[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Thu Oct 30 12:11:50 2025 +0700
+
+    Create Test
+
+[33mcommit 2f70229d61c3dc055783c36b6c790484ac220c93[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Sun Oct 26 17:46:01 2025 +0700
+
+    update .gitignore for Flet
+
+[33mcommit 559f2dd82e1eb2b7e92eeb3f3832269210ae37d9[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Sun Oct 26 16:38:52 2025 +0700
+
+    Initial commit
+[33mcommit f6521aa5d08728f46f60543ffcbf750ff0a7fe53[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mcheck-pdf[m[33m)[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Wed Dec 3 10:55:07 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit cbfb51559f3e5c61cdf4eabf9e3473982440dddf[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Wed Dec 3 00:31:22 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit ba00060dc7763a00e965231d3a9db48b9c7526b7[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Tue Dec 2 23:59:09 2025 +0700
+
+    Update Check_Pdf.py
+
+[33mcommit e843d6347bf2c0ed8781d7d13da642014ff6ccac[m
+Author: IvKonstan <ivanovkonstantin052786@gmail.com>
+Date:   Tue Dec 2 23:05:17 2025 +0700
+
+    Create Check_Pdf.py
+
+[33mcommit b0126976923552687081c409d68db374bd2fd9c9[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Константин <ivanovkonstantin052786@gmail.com>
+Date:   Tue Nov 25 19:15:08 2025 +0700
+
+    Создали файл gitignore
+
+[33mcommit 678a8f8172d272a644913ead1b1bcd72a7cfd636[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Wed Nov 19 01:21:37 2025 +0700
+
+    Добавлен запуск приложения в main
+
+[33mcommit 50c6a06fc487a9b8b5c71e0228738f6ce66ea0e4[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Wed Nov 19 01:04:50 2025 +0700
+
+    Добавлен main
+
+[33mcommit b8c2b72e26edf192e75d5af8245b4d1d3f2d8e5c[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Wed Nov 19 00:57:29 2025 +0700
+
+    Убран запуск приложения из auth
+
+[33mcommit 376f87cf323f1fd022e3c4690ffd50977e292c2c[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:31:43 2025 +0700
+
+    update
+
+[33mcommit d1e5078b7cdb58f9caad1708b630811bdb1aad8f[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:28:47 2025 +0700
+
+    update
+
+[33mcommit a648607f0e8321e3bf0b90a0d3ada4141c0e2c39[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:16:47 2025 +0700
+
+    Авторизация
+
+[33mcommit d06323a0013e82a1fb4ed1fbe8718296e85ee5d4[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Tue Nov 18 23:11:52 2025 +0700
+
+    Авторизация
+
+[33mcommit 017ab8b0eae1b7c61555ecbe363f562e7d8b9259[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Thu Nov 6 02:08:43 2025 +0700
+
+    Delete Test
+
+[33mcommit 7d78eca25bc7266e77dec7df95b378daf0d330d9[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Thu Oct 30 12:11:50 2025 +0700
+
+    Create Test
+
+[33mcommit 2f70229d61c3dc055783c36b6c790484ac220c93[m
+Author: Юрий <darymom6@gmail.com>
+Date:   Sun Oct 26 17:46:01 2025 +0700
+
+    update .gitignore for Flet
+
+[33mcommit 559f2dd82e1eb2b7e92eeb3f3832269210ae37d9[m
+Author: Adonket <darymom6@gmail.com>
+Date:   Sun Oct 26 16:38:52 2025 +0700
+
+    Initial commit
