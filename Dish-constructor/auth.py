@@ -1,6 +1,10 @@
+from register import AdaptiveMobileRegistrationApp
 import tkinter as tk
 from tkinter import messagebox
+import os
 
+# Файл для хранения данных пользователей
+USERS_FILE = "users.txt"
 
 class AdaptiveMobileLoginApp:
     def __init__(self):
@@ -164,25 +168,41 @@ class AdaptiveMobileLoginApp:
             self.eye_btn.config(text="👁")
             self.password_visible = True
 
+    def authenticate_user(self, login, password):
+        if not os.path.exists(USERS_FILE):
+            return False
+
+        with open(USERS_FILE, 'r', encoding='utf-8') as f:
+            for line in f:
+                parts = line.strip().split(':', 1)
+                if len(parts) == 2:
+                    stored_login, stored_password = parts
+                    if stored_login == login and stored_password == password:
+                        return True
+        return False
+
     def login(self):
         login = self.login_entry.get()
         password = self.password_entry.get()
 
         if not login or not password:
             messagebox.showwarning("Ошибка", "Заполните все поля!")
-        else:
-            print(f"Логин: {login}")
-            print(f"Пароль: {password}")
-            messagebox.showinfo("Успех", "Вход выполнен!")
+            return
 
-            self.login_entry.delete(0, tk.END)
-            self.password_entry.delete(0, tk.END)
-            # Возвращаем пароль в скрытый режим после входа
-            if self.password_visible:
-                self.toggle_password()
+        if self.authenticate_user(login, password):
+            messagebox.showinfo("Успех", f"Вход выполнен! Добро пожаловать, {login}!")
+        else:
+            messagebox.showerror("Ошибка", "Неверный логин или пароль!")
+
+        self.login_entry.delete(0, tk.END)
+        self.password_entry.delete(0, tk.END)
+        # Возвращаем пароль в скрытый режим после входа
+        if self.password_visible:
+            self.toggle_password()
 
     def register(self):
-        messagebox.showinfo("Регистрация", "Переход к регистрации")
+        self.root.withdraw()
+        AdaptiveMobileRegistrationApp(self.root)
 
     def run(self):
         self.root.mainloop()
